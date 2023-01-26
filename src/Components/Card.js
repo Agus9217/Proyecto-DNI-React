@@ -1,18 +1,16 @@
-import { Input, Radio, RadioGroup, Stack } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import { Data } from '../Data/Data'
 import { CardButton, CardContainer, CardTitle } from '../Style/CardStyles'
 
 const Card = () => {
   const [num, setNum] = useState(0)
-  const [value, setValue] = useState(0)
 
   const handleSubmit = (e) => {
     e.preventDefault()
     setNum(num + 1)
   }
   
-  const { title, content } = Data
+  const { title, content, id } = Data
   const dataOne = content[num]
   
   
@@ -21,10 +19,10 @@ const Card = () => {
     <CardContainer>
       <div>
         <div>
-          <CardTitle>{ title }</CardTitle>
+          <CardTitle>{id} - { title }</CardTitle>
         </div>
         <div>
-          <p>{ dataOne.question }</p>
+          <p>{dataOne.id} - { dataOne.question }</p>
         </div>
         <form>
         {
